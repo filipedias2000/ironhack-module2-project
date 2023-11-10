@@ -1,50 +1,32 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import SearchBar from '../TESTES';
+import SearchByNameBar from '../SearchByNameBar';
 
+function Homepage() {
+  const [searchResults, setSearchResults] = useState([]);
 
-const API_URL = "https://openlibrary.org/works";
+  const handleSearch = (searchTerm) => {
+    // Implement search logic here, and update the searchResults state accordingly
+    // For simplicity, just logging the search term for now
+    console.log('Searching for:', searchTerm);
+  };
 
-function HomePage() {
+  const [searchResultsName, setSearchResultsName] = useState([]);
 
-    const [works, setWorks] = useState([""]);
+  const handleSearchName = (searchTermName) => {
+    // Implement search logic here, and update the searchResultsName state accordingly
+    // For simplicity, just logging the search term for now
+    console.log('Searching for:', searchTermName);
+  };
 
-    const [fetching, setFetching] = useState(true)
-
-    useEffect(()=>{
-        axios.get(API_URL).then((response)=>{
-            setWorks(response.data);
-            setFetching(false); 
-        })
-    }, []);
-
-
-
-
-    return(
-        <div>
-            <h1>Search for a book</h1>
-            {works.map((work)=> 
-            {
-                return(
-                    <div key={`ISBN:${work.ISBN}`}>
-                        {/* <Link to={`/works/`}> */}
-                            {/* <img src={work.image_url} /> */}
-                            <div>
-                                <h3>{work.name}</h3>
-                               
-                            </div>
-                        {/* </Link> */}
-                        <br />
-                    </div>
-                )
-            })
-
-            }
-          
-
-        </div>
-
-    )
+  return (
+    <div>
+      <h1>Search Example</h1>
+      <SearchBar onSearch={handleSearch} />
+      {/* Render search results or other components here */}
+      <SearchByNameBar onSearch={handleSearchName} />
+    </div>
+  );
 }
 
-export default HomePage;
+export default Homepage;
