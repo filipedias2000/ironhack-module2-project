@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/allBooks" element={<AllBooksPage/>}/>
         <Route path="/list/:bookId" element={<BookDetailsPage/>}/>
-        <Route path="/list/:bookId" element={<BookDetailsPage/>}/>
+
 
         <Route path="/Testes/apagar no fim" element={<SearchBar/>}/>
         <Route path="/Testes/apagar no fim" element={<SearchByNameBar/>}/>
