@@ -2,35 +2,28 @@
 import './App.css'
 import {Routes, Route} from "react-router-dom";
 import HomePage from "./Components/HomePage";
-import BookDetailsPage from './Components/BookDetailsPage';
+
+import BookByISBN from './Components/BookDetailsPage/DetailsByISBN';
 import NavBar from './Components/NavBar';
-import AllBooksPage from './Components/AllBooksPage';
+import SearchBar from './Components/SearchBy_ISBN';
 
-
-import SearchBar from './Components/TESTES';
-import SearchByNameBar from './Components/SearchByNameBar';
+import BookByName from './Components/BookDetailsPage/DetailsByName';
+import ListPage from './Components/ListPage';
 
 function App() {
- 
 
   return (
     <div>
-      
       <NavBar/>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
-        <Route path="/allBooks" element={<AllBooksPage/>}/>
-        <Route path="/list/:bookId" element={<BookDetailsPage/>}/>
 
+        <Route path="/list/:bookId" element={<BookByISBN/>}/>
+        <Route path="/listName/:bookName" element={<BookByName/>}/>
 
+        <Route path="/myList" element={<ListPage/>}/>
         <Route path="/Testes/apagar no fim" element={<SearchBar/>}/>
-        <Route path="/Testes/apagar no fim" element={<SearchByNameBar/>}/>
-
-
-
-
       </Routes>
-
     </div>
   )
 }

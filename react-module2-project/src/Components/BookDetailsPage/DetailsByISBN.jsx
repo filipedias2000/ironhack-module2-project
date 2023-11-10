@@ -15,9 +15,6 @@ function BookDetailsPage() {
     .catch((error) => console.log(error));
   }, [bookId]);
 
-
-
-
   return (
     <div>
        <h1>Book Details Page</h1>
@@ -27,15 +24,6 @@ function BookDetailsPage() {
           <h2>Title: {bookDetails.title}</h2>
           <h3>Number of Pages: {bookDetails.number_of_pages}</h3>
           <h3>Weight: {bookDetails.weight}</h3>
-
-         
-          
-
-
-
-
-
-
         </div>
       )}
 

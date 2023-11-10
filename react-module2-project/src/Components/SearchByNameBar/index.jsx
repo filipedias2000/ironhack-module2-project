@@ -27,7 +27,7 @@ function SearchByNameBar({ onSearch }) {
         placeholder="Type your search here"
       />
       <button onClick={handleSaveName}>
-        <Link to={`/list/${searchTermName}`}>Submit</Link>
+        <Link to={`/listName/${searchTermName}`}>Submit</Link>
       </button>
     </div>
   );
