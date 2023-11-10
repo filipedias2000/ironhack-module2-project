@@ -18,13 +18,12 @@ function BookbyIsbn() {
 
   return (
     <div>
-       <h1>Book Details Page</h1>
-      {bookDetails && (
+       <h1>Book NBSN Page</h1>
+      {bookIsbnDetails && (
         <div>
           <img src={bookDetails.cover.large} alt="" height={200} />
-          <h2>Title: {bookDetails.title}</h2>
-          <h3>Number of Pages: {bookDetails.number_of_pages}</h3>
-          <h3>Weight: {bookDetails.weight}</h3>
+          <h2>Title: {bookIsbnDetails.title}</h2>
+          
 
         </div>
       )}
