@@ -20,11 +20,13 @@ function BookByISBN() {
       });
   }, [bookId]);
 
-  const MyId = "123"
+  let myId =4545123
+
+  const requestBody = {bookDetailsISBN, myId}
 
   const handleAddBook = () => {
     // Implement the logic to add a book, for example, by making another API call
-    axios.post(`http://localhost:5174/FavouriteBooksList`, bookDetailsISBN,MyId)
+    axios.post(`http://localhost:5174/FavouriteBooksList`,requestBody)
       .then((response) => {
         // Handle the response if needed
         console.log('Book added successfully:', response.data);
