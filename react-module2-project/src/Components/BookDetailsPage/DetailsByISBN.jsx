@@ -26,7 +26,6 @@ function BookByISBN() {
     console.log("AddBook button clicked");
   };
 
-
   return (
     <div>
        <h1>Book Details Page</h1>
@@ -44,8 +43,8 @@ function BookByISBN() {
 
        <AddBook
         title={bookDetailsISBN && bookDetailsISBN.title}
-      
-/>
+        authors={bookDetailsISBN && bookDetailsISBN.authors}
+        />
     </div>
   );
 }

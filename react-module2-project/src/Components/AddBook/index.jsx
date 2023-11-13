@@ -8,10 +8,7 @@ function AddBook(props) {
     title: props.title || ''
   });
 
-
   const [bookList, setBookList] = useState([]);
-
-
 
   const handleAddBook = () => {
     // Add the new book to the bookList array
@@ -32,7 +29,10 @@ function AddBook(props) {
 
   return (
     <div>
-      <button onClick={handleAddBook}>Add book</button>   
+        <form>
+            <button onSubmit={handleAddBook}>Add book</button>
+            </form>
+        
     </div>
   );
 }
