@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import AddBook from "../AddBook";
-
+ import AddBook from "../AddBook"; 
+ 
 const API_URL = "https://openlibrary.org/api/books?bibkeys=:bookId&jscmd=data&format=json";
 
 function BookByISBN() {
@@ -20,10 +20,18 @@ function BookByISBN() {
       });
   }, [bookId]);
 
+  const MyId = "123"
+
   const handleAddBook = () => {
     // Implement the logic to add a book, for example, by making another API call
-
-    console.log("AddBook button clicked");
+    axios.post(`http://localhost:5174/FavouriteBooksList`, bookDetailsISBN,MyId)
+      .then((response) => {
+        // Handle the response if needed
+        console.log('Book added successfully:', response.data);
+      })
+      .catch(error => {
+        console.error('Error adding book:', error);
+      });
   };
 
   return (
@@ -41,11 +49,9 @@ function BookByISBN() {
         </div>
       )}
 
-       <AddBook
-        title={bookDetailsISBN && bookDetailsISBN.title}
-        authors={bookDetailsISBN && bookDetailsISBN.authors}
-        />
-    </div>
+      <button onClick={handleAddBook}>Add Book</button>
+
+      </div>
   );
 }
 

@@ -3,38 +3,31 @@ import axios from 'axios';
 
 const BACKEND_API_URL = "http://localhost:5174";
 
-function AddBook(props) {
-  const [newBook, setNewBook] = useState({
-    title: props.title || ''
-  });
-
-  const [bookList, setBookList] = useState([]);
-
-  const handleAddBook = () => {
-    // Add the new book to the bookList array
-    setNewBook([...bookList, newBook]);
-
-    // Optional: You can also send this data to the backend API here if needed
-    axios.post(`${BACKEND_API_URL}/BooksList`, newBook)
-      .then((response) => {
-        // Handle the response if needed
-        console.log('Book added successfully:', response.data);
-      })
-
-      .catch((error) => {
-        // Handle errors
-        console.error('Error adding book:', error);
-      });
+const AddBook = () => {
+  /*   const addToFavorites = () => {
+      const favoriteBookData = {
+        title: bookDetailsISBN.title,
+        // Aqui podem adicionar os detalhes do lirvo que querem enviar para o backend
+      };
+  
+      axios.post(`http://localhost:5174/FavouriteBooksList`, favoriteBookData)
+        .then(response => {
+          // Lógica adicional após o sucesso do envio (se necessário)
+          console.log('Book added with success', response.data);
+        })
+        .catch(error => {
+          console.error('error', error);
+        });
+    };
+   */
+    return (
+  /*     <div>
+        <h1>{bookDetailsISBN.title}</h1>
+        <button onClick={addToFavorites}>Add to Favourite Books</button>
+      </div> */
+    ''
+    
+      ); 
   };
-
-  return (
-    <div>
-        <form>
-            <button onSubmit={handleAddBook}>Add book</button>
-            </form>
-        
-    </div>
-  );
-}
-
-export default AddBook;
+   
+  export default AddBook;

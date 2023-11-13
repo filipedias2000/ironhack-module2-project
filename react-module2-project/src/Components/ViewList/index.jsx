@@ -20,14 +20,12 @@ function ViewList() {
 
   return (
     <div>
-      <h1>Current List</h1>
-      {apiData ? (
-        // Display API data if available
-      <h1>Title: {apiData.title}</h1>  
-      
-      ) : (
-        // Display a loading message or other indicator while waiting for the API response
-        <p>Loading data...</p>
+      <h1>Data from Backend</h1>
+
+      {apiData && (
+        <ul>
+       
+        </ul>
       )}
     </div>
   );
