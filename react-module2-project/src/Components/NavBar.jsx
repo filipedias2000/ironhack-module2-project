@@ -8,6 +8,8 @@ return (
           <ul>
             < Link to = "/">HomePage </Link>
             { /*AINDA EM TESTES:*/}
+            < Link to = "/ViewList">View List </Link>
+
           
            { /*< Link to = "/beers">AllBeersPage </Link>
             < Link to = "/random-beer">RandomBeerPage </Link>

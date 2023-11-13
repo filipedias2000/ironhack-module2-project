@@ -8,7 +8,7 @@ import NavBar from './Components/NavBar';
 import SearchBar from './Components/SearchBy_ISBN';
 
 import BookByName from './Components/BookDetailsPage/DetailsByName';
-import ListPage from './Components/ListPage';
+
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/list/:bookId" element={<BookByISBN/>}/>
         <Route path="/listName/:bookName" element={<BookByName/>}/>
 
-        <Route path="/myList" element={<ListPage/>}/>
+        
         <Route path="/Testes/apagar no fim" element={<SearchBar/>}/>
       </Routes>
     </div>

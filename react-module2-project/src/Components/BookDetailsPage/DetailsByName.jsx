@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const API_URL2 = "https://openlibrary.org/search.json?q=:bookName";
 
-function BookByISBN() {
+function BookByName() {
   const { bookName } = useParams();
   const [bookDetails, setBookDetails] = useState(null);
 
@@ -25,25 +25,28 @@ function BookByISBN() {
           <h2>Title: {bookDetails.docs[0].title}</h2>
           {/*  display other details here */}
 
-          <ul>
-          {bookDetails.docs.map((book, index) => (
 
-            <Link to={`/list/${book.isbn && book.isbn[0]}`}>
-            <li key={index}>
-              Title: {book.title}, ISBN: {book.isbn && book.isbn[0]}
-              {book.cover && (
-                <img src={book.cover.large} alt={`img`} />
-              )}
-            </li>
-            </Link>
-          ))}
-        </ul>
+          <ul>
+       {bookDetails.docs.map((book, index) => (
+       <li key={index}>
+           <Link to={`/list/${book.isbn && book.isbn[0]}`}>
+           Title: {book.title}, ISBN: {book.isbn && book.isbn[0]}
+           {book.cover && (
+          <img src={book.cover.large} alt={`img`} />
+        )}
+      </Link>
+    </li>
+  ))}
+</ul>
+
+
+          
         </div>
       )}
     </div>
   );
 }
 
-export default BookByISBN;
+export default BookByName;
 
 
