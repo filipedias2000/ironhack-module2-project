@@ -19,12 +19,12 @@ function BookByName() {
   return (
     <div>
       <h1>Book ISBN Page</h1>
+      
       {bookDetails && bookDetails.docs.length > 0 && (
         <div>
           {/* Access the details of the first book in the array 
           <h2>Title: {bookDetails.docs[0].title}</h2>
           {/*  display other details here */}
-
 
           <ul>
        {bookDetails.docs.map((book, index) => (
@@ -32,15 +32,13 @@ function BookByName() {
            <Link to={`/list/${book.isbn && book.isbn[0]}`}>
            Title: {book.title}, ISBN: {book.isbn && book.isbn[0]}
            {book.cover && (
-          <img src={book.cover.large} alt={`img`} />
+          <img src= {book.cover.large} alt={`img`} />
         )}
       </Link>
     </li>
   ))}
 </ul>
 
-
-          
         </div>
       )}
     </div>

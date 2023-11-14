@@ -1,33 +1,94 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const BACKEND_API_URL = "http://localhost:5174";
+const BACKEND_API_URL = "http://localhost:5174/FavouriteBooksList";
 
-const AddBook = () => {
-  /*   const addToFavorites = () => {
-      const favoriteBookData = {
-        title: bookDetailsISBN.title,
-        // Aqui podem adicionar os detalhes do lirvo que querem enviar para o backend
-      };
-  
-      axios.post(`http://localhost:5174/FavouriteBooksList`, favoriteBookData)
-        .then(response => {
-          // Lógica adicional após o sucesso do envio (se necessário)
-          console.log('Book added with success', response.data);
-        })
-        .catch(error => {
-          console.error('error', error);
-        });
-    };
-   */
-    return (
-  /*     <div>
-        <h1>{bookDetailsISBN.title}</h1>
-        <button onClick={addToFavorites}>Add to Favourite Books</button>
-      </div> */
-    ''
-    
-      ); 
+const AddBookForm = () => {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [description, setDescription] = useState('');
+  const [year, setYear] = useState('');
+
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+ 
+
+    // Call the onSubmit function passed from the parent component
+    const requestBody = {title, author, description, year}
+
+    axios.post(`${BACKEND_API_URL}`, requestBody).then(() => {
+        navigate("/ViewList");
+      })
+      
+
   };
-   
-  export default AddBook;
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label> Title:<input type="text" name="title" value={title} onChange={(e)=>setTitle(e.target.value)}/></label>
+      
+      <label> Author:<input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
+      </label>
+
+      <label> Description: <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+      </label>
+
+      <label> Publish Date: <input type="text" value={year} onChange={(e) => setYear(e.target.value)} />
+      </label>
+
+      
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+export default AddBookForm;
+
+
+/* 
+
+import { useState } from "react"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
+
+
+const API_URL = "https://project-management-api-4641927fee65.herokuapp.com"
+
+
+
+fsss
+
+const handleSubmit = (e) =>{
+    //when submited, the default action of the form is to refresh the webpage and we dont want that
+    e.preventDefault()
+
+//this creates a box to be delivered to the API ate the moment the post request is done
+
+    const requestBody = {title, description}
+
+    axios.post(`${API_URL}/projects`,requestBody).then(()=>{
+        navigate("/projects")
+
+    })
+}
+
+
+return(
+    <div>
+        <form onSubmit={handleSubmit}>
+            <label> Title:<input type="text" name="title" value={title} onChange={(e)=>setTitle(e.target.value)}/></label>
+            <label> Description: <input type="text" name="description" value={description} onChange={(e)=>setDescription(e.target.value)}/></label>
+            <button type="submit"> Submit </button>
+        </form>
+    </div>
+  )
+
+}
+
+export default AddProjectPage */

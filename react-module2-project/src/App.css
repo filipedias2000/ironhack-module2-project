@@ -40,3 +40,52 @@
 .read-the-docs {
   color: #888;
 }
+
+
+/* Flex Container for Book Cards */
+.book-card-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to the next line if there's not enough space */
+  justify-content: space-between; /* Adjust this based on your layout needs */
+}
+
+.book-card {
+  /* Your existing book card styles */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  background-color: #fff;
+  cursor: pointer;
+  flex: 0 0 calc(30% - 16px); /* Adjust the width based on your layout needs */
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Book Image */
+.book-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Book Title */
+.book-card h2 {
+  margin-top: 12px;
+  font-size: 1.2rem;
+}
+
+/* Book Description */
+.book-card p {
+  margin-top: 8px;
+  color: #666;
+}
+
+/* Example of Adding Space Between Cards */
+.book-card + .book-card {
+  margin-left: 16px;
+}
