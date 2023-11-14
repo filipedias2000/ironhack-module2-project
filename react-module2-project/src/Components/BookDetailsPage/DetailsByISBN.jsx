@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
- import AddBook from "../AddBook"; 
+import { useNavigate, useParams } from "react-router-dom";
+import AddBook from "../AddBook"; 
  
 const API_URL = "https://openlibrary.org/api/books?bibkeys=:bookId&jscmd=data&format=json";
 
@@ -10,7 +10,9 @@ function BookByISBN() {
   const [bookDetailsISBN, setBookDetailsISBN] = useState(null);
   const [title, setTitle] = useState('')
   const [numberOfPages, setNumberOfPages] = useState(0);
-  const [image, setImage] = useState ('')
+  const [image, setImage] = useState ('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(API_URL.replace(":bookId", bookId))
@@ -35,6 +37,7 @@ function BookByISBN() {
       .then((response) => {
         // Handle the response if needed
         console.log('Book added successfully:', response.data);
+        navigate("/ViewList")
       })
       .catch(error => {
         console.error('Error adding book:', error);
@@ -55,9 +58,7 @@ function BookByISBN() {
           <h3>Weight: {bookDetailsISBN.weight}</h3>
         </div>
       )}
-
       <button onClick={handleAddBook}>Add Book</button>
-
       </div>
   );
 }

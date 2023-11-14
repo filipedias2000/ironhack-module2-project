@@ -10,22 +10,18 @@ const AddBook = () => {
   const [description, setDescription] = useState('');
   const [year, setYear] = useState('');
 
-
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
- 
-
     // Call the onSubmit function passed from the parent component
-    const requestBody = {title, author, description, year}
+    const requestBody = {title, author, description, year, cover: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg"}
 
     axios.post(`${BACKEND_API_URL}`, requestBody).then(() => {
         navigate("/ViewList");
       })
       
-
   };
 
   return (
@@ -40,8 +36,6 @@ const AddBook = () => {
 
       <label> Publish Date: <input type="text" value={year} onChange={(e) => setYear(e.target.value)} />
       </label>
-
-      
 
       <button type="submit">Submit</button>
     </form>
