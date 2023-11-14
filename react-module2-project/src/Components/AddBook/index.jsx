@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const BACKEND_API_URL = "http://localhost:5174/FavouriteBooksList";
 
-const AddBookForm = () => {
+const AddBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [description, setDescription] = useState('');
@@ -48,7 +48,7 @@ const AddBookForm = () => {
   );
 };
 
-export default AddBookForm;
+export default AddBook;
 
 
 /* 

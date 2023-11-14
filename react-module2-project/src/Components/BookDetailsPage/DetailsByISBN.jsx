@@ -8,21 +8,26 @@ const API_URL = "https://openlibrary.org/api/books?bibkeys=:bookId&jscmd=data&fo
 function BookByISBN() {
   const { bookId } = useParams();
   const [bookDetailsISBN, setBookDetailsISBN] = useState(null);
+  const [title, setTitle] = useState('')
+  const [numberOfPages, setNumberOfPages] = useState(0);
+  const [image, setImage] = useState ('')
 
   useEffect(() => {
     axios.get(API_URL.replace(":bookId", bookId))
       .then((response) => {
         setBookDetailsISBN(response.data[bookId]);
+/*         console.log(response.data[bookId].bookDetailsISBN.title) */
+/*         setTitle(response.data[bookId].bookDetailsISBN.title)
+        setNumberOfPages(response.data[bookId].bookDetailsISBN.number_of_pages)
+        setImage(response.data[bookId].bookDetailsISBN.cover.large) */
       })
       .catch((error) => {
         console.error("Error fetching book details:", error);
         // Handle the error and  display an error message
       });
-  }, [bookId]);
+  }, []);
 
-  let myId =4545123
-
-  const requestBody = {bookDetailsISBN, myId}
+  const requestBody = {bookDetailsISBN}
 
   const handleAddBook = () => {
     // Implement the logic to add a book, for example, by making another API call

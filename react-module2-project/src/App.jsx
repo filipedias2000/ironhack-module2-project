@@ -10,7 +10,8 @@ import BookByName from './Components/BookDetailsPage/DetailsByName';
 import SearchBar from './Components/SearchBy_ISBN';
 
 import ViewList from './Components/ViewList';
-import AddBookForm from './Components/AddBook';
+import AddBook from './Components/AddBook';
+import FavouriteBookDetailsPage from './Components/FavouriteBookDetailsPage';
 
 
 
@@ -26,7 +27,9 @@ function App() {
         <Route path="/list/:bookId" element={<BookByISBN/>}/>
         <Route path="/listName/:bookName" element={<BookByName/>}/>
         <Route path="/ViewList" element={<ViewList/>}/>
-        <Route path="/AddBookManually" element={<AddBookForm/>}/>
+        <Route path="/AddBookManually" element={<AddBook/>}/>
+        <Route path="/ViewList/:id" element={<FavouriteBookDetailsPage/>}/>
+
 
 
 

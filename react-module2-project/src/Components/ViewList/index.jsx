@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import AddBookForm from "../AddBook";
 import { Link } from "react-router-dom";
+import AddBook from "../AddBook";
+import DeleteBook from "../DeleteBook";
 
 
 const BACKEND_API_URL = "http://localhost:5174/FavouriteBooksList";
 
-function MyList() {
+function ViewList() {
   const { id } = useParams();
-  const [MybookDetails, setMyBookDetails] = useState([]);
+  const [myBookDetails, setMyBookDetails] = useState([]);
 
   useEffect(() => {
     axios.get(BACKEND_API_URL)
       .then((response) => {
         // Check if the array is not empty before accessing its first element
-        if (response.data && response.data.length > 0) {
+        
           // Access the title property from the first item in the array
           setMyBookDetails(response.data);
-        }
+/*           console.log(response.data) */
+        
       })
       .catch((error) => {
         console.error("Error fetching book details:", error);
@@ -44,16 +46,23 @@ function MyList() {
       </div>
 
       <div className="book-card-container">
-        {MybookDetails.map((book) => (
+        {myBookDetails.map((book) => (
+            
           <div key={book.id} className="book-card">{/* /* ou id?*/ }
+
+          
             {book.cover && book.cover.large && (
               <img src={book.cover.large} alt="" height={200} />
             )}
+            <Link to={`/ViewList/${id}`}>
             <h2>Title: {book.title}</h2>
+            </Link>
             <h3>Publish date: {book.publish_date}</h3>
             <h3>Number of Pages: {book.number_of_pages}</h3>
             <h3>Weight: {book.weight}</h3>
           </div>
+         
+
         ))}
       </div>
     </div>
@@ -61,4 +70,4 @@ function MyList() {
   
 }
 
-export default MyList;
+export default ViewList;
