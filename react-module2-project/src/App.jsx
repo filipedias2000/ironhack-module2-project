@@ -13,9 +13,6 @@ import ViewList from './Components/ViewList';
 import AddBook from './Components/AddBook';
 import FavouriteBookDetailsPage from './Components/FavouriteBookDetailsPage';
 
-
-
-
 function App() {
 
   return (
@@ -28,10 +25,7 @@ function App() {
         <Route path="/listName/:bookName" element={<BookByName/>}/>
         <Route path="/ViewList" element={<ViewList/>}/>
         <Route path="/AddBookManually" element={<AddBook/>}/>
-        <Route path="/ViewList/:id" element={<FavouriteBookDetailsPage/>}/>
-
-
-
+        <Route path="/list/personal/:id" element={<FavouriteBookDetailsPage/>}/>
 
         <Route path="/Testes/apagar no fim" element={<SearchBar/>}/>
       </Routes>
@@ -39,4 +33,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

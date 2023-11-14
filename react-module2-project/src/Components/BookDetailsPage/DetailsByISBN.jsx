@@ -29,7 +29,7 @@ function BookByISBN() {
       });
   }, []);
 
-  const requestBody = {bookDetailsISBN}
+  const requestBody = bookDetailsISBN
 
   const handleAddBook = () => {
     // Implement the logic to add a book, for example, by making another API call

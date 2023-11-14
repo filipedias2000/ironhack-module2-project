@@ -2,37 +2,53 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const BACKEND_API_URL = "http://localhost:5174/FavouriteBooksList/:id";
-
 function FavouriteBookDetailsPage() {
   const { id } = useParams();
-  const [bookDetails, setBookDetails] = useState([]);
+  const [myBookDetails, setMyBookDetails] = useState([]);
+
+  const BACKEND_API_URL = `http://localhost:5174/FavouriteBooksList/${id}`;
 
   useEffect(() => {
-    axios.get(BACKEND_API_URL.replace(":id", id))
+    axios.get(BACKEND_API_URL)
       .then((response) => {
-        setBookDetails(response.data);
+        setMyBookDetails(response.data); // Assuming you want details from the first book
+        console.log(response.data)
       })
       .catch((error) => {
         console.error("Error fetching book details:", error);
         // Handle the error and display an error message
       });
-  }, [id]);
+  }, []);
+/* 
+  const deleteBook = (bookId) => {
+    // Implement your deleteBook logic here
+    console.log(`Delete book with ID: ${bookId}`);
+  }; */
 
   return (
     <div>
       <div>
-        {bookDetails && bookDetails.map((book) => (
-          <div key={book.id}>
-            {book.cover && book.cover.large && (
-              <img src={book.cover.large} alt="" height={200} />
+          {/* <div key={myBookDetails.id}> */}
+{/*           {myBookDetails.bookDetailsISBN.cover ? (
+                  <img
+                    src={book.bookDetailsISBN.cover.large}
+                    alt=""
+                    height={200}
+                  />
+                ) : (
+                  <h1>No image</h1>
+                )} */}
+            {myBookDetails && (
+                <div>
+                <h2>Title: {myBookDetails.title}</h2>
+
+  {/*               <button onClick={() => deleteBook(myBookDetails.id)}>Delete Book</button> */}
+              
+              <h1>No image</h1>
+              </div>
             )}
-            <h2>Title: {book.title}</h2>
-            <h3>Publish date: {book.publish_date}</h3>
-            <h3>Number of Pages: {book.number_of_pages}</h3>
-            <h3>Weight: {book.weight}</h3>
-          </div>
-        ))}
+            
+        
       </div>
     </div>
   );

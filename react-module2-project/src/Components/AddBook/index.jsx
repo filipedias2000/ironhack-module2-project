@@ -8,7 +8,7 @@ const AddBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [description, setDescription] = useState('');
-  const [year, setYear] = useState('');
+  const [publish_date, setPublish_date] = useState('');
 
   const navigate = useNavigate();
 
@@ -16,7 +16,20 @@ const AddBook = () => {
     e.preventDefault();
 
     // Call the onSubmit function passed from the parent component
-    const requestBody = {title, author, description, year, cover: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg"}
+    const requestBody = {
+          title,
+          author,
+          description,
+          publish_date,
+          cover: {
+            large: {
+              url: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
+              height: 150
+            }
+          }
+        }
+
+         
 
     axios.post(`${BACKEND_API_URL}`, requestBody).then(() => {
         navigate("/ViewList");
@@ -34,7 +47,7 @@ const AddBook = () => {
       <label> Description: <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
       </label>
 
-      <label> Publish Date: <input type="text" value={year} onChange={(e) => setYear(e.target.value)} />
+      <label> Publish Date: <input type="text" value={publish_date} onChange={(e) => setPublish_date(e.target.value)} />
       </label>
 
       <button type="submit">Submit</button>
