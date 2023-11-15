@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import AddBook from "../AddBook";
 
 
-const BACKEND_API_URL = "http://localhost:5174/FavouriteBooksList";
+const BACKEND_API_URL = "https://openstories-29lc.onrender.com/FavouriteBooksList";
 
 function ViewList() {
   const { id } = useParams();
@@ -56,7 +56,7 @@ function ViewList() {
                   <img
                     src={book.bookDetailsISBN.cover.large}
                     alt=""
-                    height={200}
+                    height={150}
                   />
                 ) : (
                   <h1>No image</h1>
@@ -79,8 +79,7 @@ function ViewList() {
                     
                   <img src={book.cover.large} alt="" height={150} />
                 ) : (
-                  <h1>No image</h1>
-                )}
+                  <img src="https://st4.depositphotos.com/14953852/22772/v/450/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg" alt="" height={200} />  )}
                 
                   <h2>Title: {book.title}</h2>
                 </Link>

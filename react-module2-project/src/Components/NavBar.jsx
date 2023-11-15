@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBy_ISBN";
 
 
 function NavBar () {
@@ -6,14 +7,16 @@ function NavBar () {
 return (
     <nav className = "navbar">
           <ul className="nav-list">
-            < Link to = "/">HomePage </Link>
+{/*             <SearchBar/>
+ */}            <Link to = "/">HomePage </Link>
             <Link to="/ViewList">
+            View List
             <img
-              src=" "
+              src="../public/like.png "
               alt="View List"
-              height="50px"
+              height="40px"
             />
-            {/* View List */}
+            
           </Link>
 
           </ul>

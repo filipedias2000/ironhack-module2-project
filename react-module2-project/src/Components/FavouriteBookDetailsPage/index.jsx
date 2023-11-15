@@ -6,7 +6,7 @@ function FavouriteBookDetailsPage() {
   const { id } = useParams();
   const [myBookDetails, setMyBookDetails] = useState([]);
 
-  const BACKEND_API_URL = `http://localhost:5174/FavouriteBooksList/${id}`;
+  const BACKEND_API_URL = `https://openstories-29lc.onrender.com/FavouriteBooksList/${id}`;
 
   useEffect(() => {
     axios.get(BACKEND_API_URL)
@@ -23,50 +23,75 @@ function FavouriteBookDetailsPage() {
   const deleteBook = (bookId) => {
     // Implement your deleteBook logic here
     console.log(`Delete book with ID: ${bookId}`);
+
   }; */
 
   return (
-    <div>
+    <div className="main-div">
       <div>
-          {/* <div key={myBookDetails.id}> */}
-{/*           {myBookDetails.bookDetailsISBN.cover ? (
-                  <img
-                    src={book.bookDetailsISBN.cover.large}
-                    alt=""
-                    height={200}
-                  />
-                ) : (
-                  <h1>No image</h1>
-                )} */}
-            {myBookDetails && (
-                <div>
-                {myBookDetails.cover && myBookDetails.cover.large ? (<img src={myBookDetails.cover.large} alt="" />
-                ) : (
-                <h2>No Image</h2> )}
-                <h2>Title: {myBookDetails.title}</h2>
-                <h2>Number of Pages: {myBookDetails.number_of_pages}</h2>
+        {myBookDetails && (
+          <div>
+            <div className="img-container">
+              {myBookDetails.cover && myBookDetails.cover.large ? (
+                <img src={myBookDetails.cover.large} alt="" />
+              ) : (
+                <h2>No Image</h2>
+              )}
+            </div>
+    
+            <div className="body-container">
+              <h2>Title: {myBookDetails.title}</h2>
 
-                <h2>Description: {myBookDetails.description}</h2>
-                <h2> E-book: {myBookDetails.ebooks ? (
-                  myBookDetails.ebooks.map((ebook, index) => (
-                 <a key={index} href={ebook.preview_url}>{ebook.preview_url}</a>
+              <h2>
+                Author(s): {myBookDetails.authors && myBookDetails.authors.length > 0 ? (
+                  myBookDetails.authors.map((author, index) => (
+                    <span key={index}>{author.name}</span>
                   ))
-                  ) : (
-                 "Not available"
-                  )}
-                 </h2>
-                
-                                
-  {/*               <button onClick={() => deleteBook(myBookDetails.id)}>Delete Book</button> */}
-              
-          
-              </div>
-            )}
-            
-        
+                ) : (
+                  "Not available"
+                )}
+              </h2>
+              <h2>
+                Number of Pages: 
+                {myBookDetails.number_of_pages && myBookDetails.number_of_pages.length > 0 ? (myBookDetails.number_of_pages
+                ) : (
+                    "Not available"
+                    )}
+             </h2>
+
+
+             <h2>
+  Publish date:{" "}
+  {myBookDetails.publish_date ? (
+    myBookDetails.publish_date
+  ) : (
+    "Not available"
+  )}
+</h2>
+
+              <h2>Description :</h2><p><h5> {myBookDetails.description}</h5></p> 
+            </div>
+  
+            <div className="ebook-container">
+              <h4> E-book: {myBookDetails.ebooks ? (
+                  myBookDetails.ebooks.map((ebook, index) => (
+                    <a key={index} href={ebook.preview_url}>
+                      {ebook.preview_url}
+                    </a>
+                  ))
+                ) : (
+                  "Not available"
+                )}
+              </h4>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
+  
+  
+  
 }
 
 export default FavouriteBookDetailsPage;

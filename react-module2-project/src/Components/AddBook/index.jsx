@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const BACKEND_API_URL = "http://localhost:5174/FavouriteBooksList";
+const BACKEND_API_URL = "https://openstories-29lc.onrender.com/FavouriteBooksList";
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
@@ -23,18 +23,13 @@ const AddBook = () => {
         publish_date,
         cover: {
           large:"https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
-            
-          
         }
       };
       
-
-         
-
     axios.post(`${BACKEND_API_URL}`, requestBody).then(() => {
         navigate("/ViewList");
       })
-      
+
   };
 
   return (

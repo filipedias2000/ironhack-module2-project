@@ -8,9 +8,9 @@ const API_URL = "https://openlibrary.org/api/books?bibkeys=:bookId&jscmd=data&fo
 function BookByISBN() {
   const { bookId } = useParams();
   const [bookDetailsISBN, setBookDetailsISBN] = useState(null);
-  const [title, setTitle] = useState('')
+  /* const [title, setTitle] = useState('')
   const [numberOfPages, setNumberOfPages] = useState(0);
-  const [image, setImage] = useState ('');
+  const [image, setImage] = useState (''); */
 
   const navigate = useNavigate();
 
@@ -33,7 +33,7 @@ function BookByISBN() {
 
   const handleAddBook = () => {
     // Implement the logic to add a book, for example, by making another API call
-    axios.post(`http://localhost:5174/FavouriteBooksList`,requestBody)
+    axios.post(`https://openstories-29lc.onrender.com/FavouriteBooksList`,requestBody)
       .then((response) => {
         // Handle the response if needed
         console.log('Book added successfully:', response.data);

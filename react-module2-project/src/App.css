@@ -40,6 +40,8 @@
   background-color:teal;
   padding: 15px;
   border-radius: 10px;
+  max-width: auto;
+
 
 }
 
@@ -163,4 +165,39 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/*MYFAVOURITELIST PAGE */
+
+/* Style for main container */
+.main-div {
+  display: flex;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+/* Style for img container */
+.img-container {
+  flex: 0 0 20%; /* Adjust the width as needed */
+  padding: 10px; /* Add some padding for spacing */
+}
+
+/* Style for body container */
+.body-container {
+  flex: 1; /* Take up the remaining space */
+  padding: 10px; /* Add some padding for spacing */
+}
+
+/* Style for ebook container */
+.ebook-container {
+  flex: 0 0 100%; /* Adjust the width as needed */
+  margin-top: 20px; /* Add some spacing between body-container and ebook-container */
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+/* Add some styling to h2 elements for better readability */
+h2 {
+  margin-bottom: 10px;
 }
