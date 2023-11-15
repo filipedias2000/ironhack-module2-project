@@ -40,11 +40,26 @@ function FavouriteBookDetailsPage() {
                 )} */}
             {myBookDetails && (
                 <div>
+                {myBookDetails.cover && myBookDetails.cover.large ? (<img src={myBookDetails.cover.large} alt="" />
+                ) : (
+                <h2>No Image</h2> )}
                 <h2>Title: {myBookDetails.title}</h2>
+                <h2>Number of Pages: {myBookDetails.number_of_pages}</h2>
 
+                <h2>Description: {myBookDetails.description}</h2>
+                <h2> E-book: {myBookDetails.ebooks ? (
+                  myBookDetails.ebooks.map((ebook, index) => (
+                 <a key={index} href={ebook.preview_url}>{ebook.preview_url}</a>
+                  ))
+                  ) : (
+                 "Not available"
+                  )}
+                 </h2>
+                
+                                
   {/*               <button onClick={() => deleteBook(myBookDetails.id)}>Delete Book</button> */}
               
-              <h1>No image</h1>
+          
               </div>
             )}
             

@@ -77,9 +77,9 @@ function ViewList() {
 
                 {book.cover ? (
                     
-                  <img src={book.cover} alt="" height={150} />
+                  <img src={book.cover.large} alt="" height={150} />
                 ) : (
-                  <h1>No llll</h1>
+                  <h1>No image</h1>
                 )}
                 
                   <h2>Title: {book.title}</h2>

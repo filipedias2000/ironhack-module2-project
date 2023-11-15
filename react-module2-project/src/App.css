@@ -33,6 +33,37 @@
   }
 }
 
+
+/* NAV BAR*/
+
+.navbar {
+  background-color:teal;
+  padding: 15px;
+  border-radius: 10px;
+
+}
+
+.nav-list {
+  list-style: none;
+  display: flex; /* Display items in a row */
+}
+
+.nav-list li {
+  margin-right: 20px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-list a:hover {
+  color: #ffcc00;
+}
+
+/*BOOK VIEW LIST*/
 .card {
   padding: 2em;
 }
@@ -88,4 +119,48 @@
 /* Example of Adding Space Between Cards */
 .book-card + .book-card {
   margin-left: 16px;
+}
+
+
+/* SEARCRH BAR */
+
+.search-bar {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.search-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #2980b9;
+}
+
+.custom-form {
+  max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

@@ -17,17 +17,17 @@ const AddBook = () => {
 
     // Call the onSubmit function passed from the parent component
     const requestBody = {
-          title,
-          author,
-          description,
-          publish_date,
-          cover: {
-            large: {
-              url: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
-              height: 150
-            }
-          }
+        title,
+        author,
+        description,
+        publish_date,
+        cover: {
+          large:"https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
+            
+          
         }
+      };
+      
 
          
 
@@ -38,7 +38,7 @@ const AddBook = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="custom-form">
       <label> Title:<input type="text" name="title" value={title} onChange={(e)=>setTitle(e.target.value)}/></label>
       
       <label> Author:<input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />

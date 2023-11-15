@@ -20,7 +20,7 @@ function Homepage() {
   };
 
   return (
-    <div>
+    <div >
       <h1>Search Example</h1>
       <SearchBar onSearch={handleSearch} />
       {/* Render search results or other components here */}

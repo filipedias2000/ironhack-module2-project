@@ -18,9 +18,9 @@ function SearchBar({ onSearch }) {
   };
 
   return (
-    <div>
-      <label htmlFor="searchInput">Search by ISBN:</label>
-      <input
+    <div className ="search-bar">
+      <label htmlFor="searchInput" >Search by ISBN:</label>
+      <input 
         type="text"
         id="searchInput"
         value={searchTerm}
