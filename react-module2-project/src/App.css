@@ -69,6 +69,13 @@
   font-size: 16px;
 }
 
+/* the list of seacr by name*/
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
 
 
@@ -197,6 +204,24 @@
 }
 
 
+
+/* the BUTONS at the top of the page*/
+
+
+.AddButton {
+  padding: 50 px;
+  color:black; /* Text color, typically white for buttons */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.AddButton:hover {
+  background-color: #0056b3; /* Darker shade on hover, adjust as needed */
+}
  
 /*MY FAVOURITE LIST  - BOOK DETAILS PAGE */
 
@@ -218,6 +243,18 @@
   text-align: left;
 }
 
+
+
+
+.Bottom-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f8f8;
+
+}
+
+
 .ebook-container {
   flex: 0 0 100%;
   margin-top: 20px;
@@ -228,5 +265,35 @@
 h2 {
   margin-bottom: 10px;
 }
+
+
+
+.ebook-container {
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 600px; /* Adjust the maximum width as needed */
+}
+
+.button-container button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+
 
 /**/

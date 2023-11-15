@@ -38,12 +38,21 @@ function ViewList() {
 
   return (
     <div>
-      <div className="">
-        <h1>My Favourite books</h1>
       
+        <h1>My Favourite books</h1>
+        <div className="">
         <Link to="/AddBookManually">
-          <button>Add Manually</button>
+          <button className = "AddButton">Add Manually</button>
         </Link>
+      </div>
+
+      <div>
+      <input
+     /*      type="text"
+          placeholder="Search..."
+          value={searchTerm}
+      /*     onChange={handleSearchChange} */
+        /> 
       </div>
 
       <div className="book-card-container">
@@ -77,9 +86,9 @@ function ViewList() {
 
                 {book.cover ? (
                     
-                  <img src={book.cover.large} alt="" height={150} />
+                  <img src={book.cover.large} alt="" height={50} />
                 ) : (
-                  <img src="https://st4.depositphotos.com/14953852/22772/v/450/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg" alt="" height={200} />  )}
+                  <img src="https://st4.depositphotos.com/14953852/22772/v/450/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg" alt="" height={600} />  )}
                 
                   <h2>Title: {book.title}</h2>
                 </Link>

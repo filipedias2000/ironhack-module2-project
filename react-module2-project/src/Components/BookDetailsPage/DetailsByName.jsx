@@ -28,7 +28,7 @@ function BookByName() {
 
           <ul>
        {bookDetails.docs.map((book, index) => (
-       <li key={index}>
+       <li  key={index}>
            <Link to={`/list/${book.isbn && book.isbn[0]}`}>
            Title: {book.title}, ISBN: {book.isbn && book.isbn[0]}
            {book.cover && (

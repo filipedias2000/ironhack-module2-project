@@ -13,6 +13,8 @@ import ViewList from './Components/ViewList';
 import AddBook from './Components/AddBook';
 import FavouriteBookDetailsPage from './Components/FavouriteBookDetailsPage';
 
+import EditBookDetails from './Components/EditBook';
+
 function App() {
 
   return (
@@ -23,9 +25,16 @@ function App() {
 
         <Route path="/list/:bookId" element={<BookByISBN/>}/>
         <Route path="/listName/:bookName" element={<BookByName/>}/>
+
+
         <Route path="/ViewList" element={<ViewList/>}/>
         <Route path="/AddBookManually" element={<AddBook/>}/>
         <Route path="/list/personal/:id" element={<FavouriteBookDetailsPage/>}/>
+
+        <Route path="/edit/:id" element={<EditBookDetails/>}/>
+
+
+
 
         <Route path="/Testes/apagar no fim" element={<SearchBar/>}/>
       </Routes>
