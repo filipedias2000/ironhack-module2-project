@@ -37,21 +37,29 @@
 /* NAV BAR*/
 
 .navbar {
-  background-color:teal;
+  display: flex;
+  justify-content: space-between;
+  background-color: teal;
   padding: 15px;
   border-radius: 10px;
-  max-width: auto;
-
-
+  text-decoration: none;
+  color: #fff;
 }
 
-.nav-list {
-  list-style: none;
-  display: flex; /* Display items in a row */
+.nav-left,
+.nav-right {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Align items vertically in the center */
+
+  
 }
 
-.nav-list li {
-  margin-right: 20px;
+.nav-right img {
+  margin-left: 10px;
+  align-items: center;
 }
 
 .nav-list a {
@@ -61,18 +69,8 @@
   font-size: 16px;
 }
 
-.nav-list a:hover {
-  color: #ffcc00;
-}
 
-/*BOOK VIEW LIST*/
-.card {
-  padding: 2em;
-}
 
-.read-the-docs {
-  color: #888;
-}
 
 
 /* Flex Container for Book Cards */
@@ -158,46 +156,77 @@
   background-color: #2980b9;
 }
 
+
+/* ADD BOOK FORM*/
+
 .custom-form {
+  display: flex;
+  flex-direction: column;
   max-width: 400px;
-  width: 100%;
-  background-color: #fff;
+  margin: auto;
   padding: 20px;
+  border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.custom-form label {
+  margin-bottom: 10px;
+}
 
-/*MYFAVOURITELIST PAGE */
+.custom-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
 
-/* Style for main container */
+.custom-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.custom-form button:hover {
+  background-color: #45a049;
+}
+
+
+ 
+/*MY FAVOURITE LIST  - BOOK DETAILS PAGE */
+
 .main-div {
   display: flex;
+  flex-direction: row;
   border-radius: 10px;
   background-color: #f8f8f8;
 }
 
-/* Style for img container */
 .img-container {
-  flex: 0 0 20%; /* Adjust the width as needed */
-  padding: 10px; /* Add some padding for spacing */
+  float:right ;
+  flex: 49%;
+  padding: 10px;
 }
 
-/* Style for body container */
 .body-container {
-  flex: 1; /* Take up the remaining space */
-  padding: 10px; /* Add some padding for spacing */
+  padding: 10px;
+  text-align: left;
 }
 
-/* Style for ebook container */
 .ebook-container {
-  flex: 0 0 100%; /* Adjust the width as needed */
-  margin-top: 20px; /* Add some spacing between body-container and ebook-container */
+  flex: 0 0 100%;
+  margin-top: 20px;
   border-radius: 10px;
   background-color: #f8f8f8;
 }
 
-/* Add some styling to h2 elements for better readability */
 h2 {
   margin-bottom: 10px;
 }
+
+/**/

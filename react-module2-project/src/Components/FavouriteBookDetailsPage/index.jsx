@@ -27,73 +27,76 @@ function FavouriteBookDetailsPage() {
   }; */
 
   return (
-    <div className="main-div">
+    <div>
       <div>
         {myBookDetails && (
-          <div>
+          <div className="main-div">
             <div className="img-container">
               {myBookDetails.cover && myBookDetails.cover.large ? (
                 <img src={myBookDetails.cover.large} alt="" />
               ) : (
-                <h2>No Image</h2>
+                <img src="https://st4.depositphotos.com/14953852/22772/v/450/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg" alt="" height={350} />
               )}
             </div>
-    
+  
             <div className="body-container">
               <h2>Title: {myBookDetails.title}</h2>
-
-              <h2>
-                Author(s): {myBookDetails.authors && myBookDetails.authors.length > 0 ? (
+  
+              <h3>
+                Author(s):{" "}
+                {myBookDetails.authors && myBookDetails.authors.length > 0 ? (
                   myBookDetails.authors.map((author, index) => (
                     <span key={index}>{author.name}</span>
                   ))
                 ) : (
                   "Not available"
                 )}
-              </h2>
-              <h2>
-                Number of Pages: 
-                {myBookDetails.number_of_pages && myBookDetails.number_of_pages.length > 0 ? (myBookDetails.number_of_pages
-                ) : (
-                    "Not available"
-                    )}
-             </h2>
-
-
-             <h2>
-  Publish date:{" "}
-  {myBookDetails.publish_date ? (
-    myBookDetails.publish_date
-  ) : (
-    "Not available"
-  )}
-</h2>
-
-              <h2>Description :</h2><p><h5> {myBookDetails.description}</h5></p> 
-            </div>
-  
-            <div className="ebook-container">
-              <h4> E-book: {myBookDetails.ebooks ? (
-                  myBookDetails.ebooks.map((ebook, index) => (
-                    <a key={index} href={ebook.preview_url}>
-                      {ebook.preview_url}
-                    </a>
-                  ))
+              </h3>
+              <h3>
+                Number of Pages:{" "}
+                {myBookDetails.number_of_pages &&
+                myBookDetails.number_of_pages.length > 0 ? (
+                  myBookDetails.number_of_pages
                 ) : (
                   "Not available"
                 )}
-              </h4>
+              </h3>
+  
+              <h3>
+                Publish date:{" "}
+                {myBookDetails.publish_date ? (
+                  myBookDetails.publish_date
+                ) : (
+                  "Not available"
+                )}
+              </h3>
+  
+              <h3>Description :</h3>
+              <h5>{myBookDetails.description}</h5>
             </div>
           </div>
         )}
+  
+        <div className="ebook-container">
+          <h4>
+            e-book:{" "}
+            {myBookDetails.ebooks ? (
+              myBookDetails.ebooks.map((ebook, index) => (
+                <a key={index} href={ebook.preview_url}>
+                  {ebook.preview_url}
+                </a>
+              ))
+            ) : (
+              "Not available"
+            )}
+          </h4>
+        </div>
       </div>
     </div>
   );
   
-  
-  
-}
-
+            }
+            
 export default FavouriteBookDetailsPage;
 
 
