@@ -13,6 +13,10 @@ const EditBookDetails = () => {
   const [publish_date, setPublish_date] = useState('');
   const [description, setDescription] = useState('');
   const [cover, setCover] = useState('');
+  const [ebooks, setEbooks] = useState('');
+
+
+
 
   const navigate = useNavigate();
 
@@ -27,6 +31,8 @@ const EditBookDetails = () => {
         setPublish_date(bookDetails.publish_date);
         setDescription(bookDetails.description);
         setCover(bookDetails.cover && bookDetails.cover.large);
+        setEbooks(bookDetails.ebooks && bookDetails.ebooks.preview_url);
+
       })
       .catch((error) => {
         console.error("Error fetching book details:", error);
@@ -44,6 +50,9 @@ const EditBookDetails = () => {
       description,
       cover: {
         large: cover,
+      },
+      ebooks: {
+        preview_url: ebooks,
       },
     };
 
@@ -116,6 +125,16 @@ const EditBookDetails = () => {
             name="cover"
             value={cover}
             onChange={(e) => setCover(e.target.value)}
+          />
+        </label>
+
+        <label>
+          e-book:
+          <input
+            type="text"
+            name="e-book"
+            value={ebooks}
+            onChange={(e) => setEbooks(e.target.value)}
           />
         </label>
 
