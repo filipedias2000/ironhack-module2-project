@@ -22,7 +22,6 @@ function FavouriteBookDetailsPage() {
       });
   }, []);
 
-  
   function deleteBook(id) {
     axios.delete(`https://openstories-29lc.onrender.com/FavouriteBooksList/${id}`)
       .then(() => {
@@ -34,7 +33,6 @@ function FavouriteBookDetailsPage() {
       });
   }
   
-
   return (
     <div>
       <div>
@@ -119,14 +117,9 @@ function FavouriteBookDetailsPage() {
           <button onClick={() => deleteBook(id)}>Delete Book</button>
           </Link>
 
-         
-
-
         </div>
         </div>
         </div>
-
-
       </div>
     </div>
   );
