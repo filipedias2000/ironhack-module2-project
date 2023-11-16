@@ -29,7 +29,6 @@ const AddBook = () => {
     axios.post(`${BACKEND_API_URL}`, requestBody).then(() => {
         navigate("/ViewList");
       })
-
   };
 
   return (
@@ -53,44 +52,3 @@ const AddBook = () => {
 export default AddBook;
 
 
-/* 
-
-import { useState } from "react"
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
-
-
-const API_URL = "https://project-management-api-4641927fee65.herokuapp.com"
-
-
-
-fsss
-
-const handleSubmit = (e) =>{
-    //when submited, the default action of the form is to refresh the webpage and we dont want that
-    e.preventDefault()
-
-//this creates a box to be delivered to the API ate the moment the post request is done
-
-    const requestBody = {title, description}
-
-    axios.post(`${API_URL}/projects`,requestBody).then(()=>{
-        navigate("/projects")
-
-    })
-}
-
-
-return(
-    <div>
-        <form onSubmit={handleSubmit}>
-            <label> Title:<input type="text" name="title" value={title} onChange={(e)=>setTitle(e.target.value)}/></label>
-            <label> Description: <input type="text" name="description" value={description} onChange={(e)=>setDescription(e.target.value)}/></label>
-            <button type="submit"> Submit </button>
-        </form>
-    </div>
-  )
-
-}
-
-export default AddProjectPage */

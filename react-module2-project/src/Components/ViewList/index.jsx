@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import AddBook from "../AddBook";
 
-
 const BACKEND_API_URL = "https://openstories-29lc.onrender.com/FavouriteBooksList";
 
 function ViewList() {

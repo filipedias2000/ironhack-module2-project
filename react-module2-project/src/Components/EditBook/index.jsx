@@ -16,8 +16,6 @@ const EditBookDetails = () => {
   const [ebooks, setEbooks] = useState('');
 
 
-
-
   const navigate = useNavigate();
 
   useEffect(() => {
