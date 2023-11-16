@@ -33,7 +33,6 @@
   }
 }
 
-
 /* NAV BAR*/
 
 .navbar {
@@ -53,8 +52,6 @@
   display: flex;
   align-items: center;
   justify-content: center; /* Align items vertically in the center */
-
-  
 }
 
 .app-name {
@@ -98,10 +95,6 @@
   max-height: 100px;
   margin-right: 10px;
 }
-
-
-
-
 
 /* Flex Container for Book Cards */
 .book-card-container {
@@ -151,7 +144,6 @@
   margin-left: 16px;
 }
 
-
 /* SEARCRH BAR */
 
 .search-bar {
@@ -185,7 +177,6 @@
 .search-button:hover {
   background-color: #2980b9;
 }
-
 
 /* ADD BOOK FORM*/
 
@@ -226,10 +217,7 @@
   background-color: #45a049;
 }
 
-
-
 /* the BUTONS at the top of the page*/
-
 
 .AddButton {
   padding: 50 px;
@@ -266,9 +254,6 @@
   text-align: left;
 }
 
-
-
-
 .Bottom-container {
   display: flex;
   flex-direction: column;
@@ -276,7 +261,6 @@
   background-color: #f8f8f8;
 
 }
-
 
 .ebook-container {
   flex: 0 0 100%;
@@ -289,17 +273,14 @@ h2 {
   margin-bottom: 10px;
 }
 
-
-
 .ebook-container {
   margin-bottom: 20px;
 }
 
 .button-container {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 600px; /* Adjust the maximum width as needed */
+  justify-content: center;
+  max-width: 100%; /* Adjust the maximum width as needed */
 }
 
 .button-container button {
@@ -317,10 +298,6 @@ h2 {
   color: #fff;
 }
 
-
-
-/**/
-
 /* Checkbox.css */
 
 .custom-label {
@@ -328,10 +305,3 @@ h2 {
   align-items: center;
   margin-bottom: 10px; /* Adjust margin as needed */
 }
-
-
-
-
-
-
-/**/
