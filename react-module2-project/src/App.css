@@ -305,3 +305,16 @@ h2 {
   align-items: center;
   margin-bottom: 10px; /* Adjust margin as needed */
 }
+
+/* Your regular styles go here */
+
+/* Media query for screens with a maximum width of 768 pixels (adjust as needed) */
+@media (max-width: 768px) {
+  /* Styles for smaller screens (e.g., mobile devices) go here */
+  body {
+    font-size: 14px; /* Adjust the font size for smaller screens */
+  }
+
+  /* Add more styles as needed for mobile devices */
+}
+
