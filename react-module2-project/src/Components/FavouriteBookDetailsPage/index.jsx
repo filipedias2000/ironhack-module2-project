@@ -22,16 +22,14 @@ function FavouriteBookDetailsPage() {
   }, []);
 
   function deleteBook(id) {
-    axios.delete(`${BACKEND_API_URL}/${id}`).then(() => {
-      console.log("Book deleted!");
-      axios.get(BACKEND_API_URL).then((response) => {
-        setMyBookDetails(response.data);
-        then(() => {
-            navigate("/ViewList");
-          })
-       
+    axios.delete(`${BACKEND_API_URL}/${id}`)
+      .then(() => {
+        console.log("Book deleted!");
+        navigate("/ViewList");
+      })
+      .catch((error) => {
+        console.error("Error deleting book:", error);
       });
-    });
   }
 
   return (
@@ -85,43 +83,40 @@ function FavouriteBookDetailsPage() {
           </div>
         )}
 
-         <div classeName = "Bottom-container">
+        <div className="Bottom-container">
+          <div className="ebook-container">
+            <div>
+              <h4>
+                e-book:{" "}
+                {myBookDetails.ebooks ? (
+                  myBookDetails.ebooks.map((ebook, index) => (
+                    <a key={index} href={ebook.preview_url}>
+                      {ebook.preview_url}
+                    </a>
+                  ))
+                ) : (
+                  "Not available"
+                )}
+              </h4>
+            </div>
 
-        <div className="ebook-container">
-          <h4>
-            e-book:{" "}
-            {myBookDetails.ebooks ? (
-              myBookDetails.ebooks.map((ebook, index) => (
-                <a key={index} href={ebook.preview_url}>
-                  {ebook.preview_url}
-                </a>
-              ))
-            ) : (
-              "Not available"
-            )}
-          </h4>
+            <div className="button-container">
+              <Link to="/ViewList">
+                <button>Back to myList</button>
+              </Link>
+
+              <Link to={`/edit/${id}`}>
+                <button>Edit</button>
+              </Link>
+
+              <button onClick={() => deleteBook(id)}>Delete Book</button>
+
+              <Link to="">
+                <button>Mark as Read</button>
+              </Link>
+            </div>
+          </div>
         </div>
-
-        <div className="button-container">
-
-          <Link to="/ViewList">
-            <button>Back to myList</button>
-          </Link>
-
-          <Link to={`/edit/${id}`}>
-            <button>Edit</button>
-          </Link>
-
-          <button onClick={() => deleteBook(id)}>Delete Book</button>
-
-          <Link to="">
-            <button>Mark as Read</button>
-          </Link>
-
-        </div>
-        </div>
-
-
       </div>
     </div>
   );

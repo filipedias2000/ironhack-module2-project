@@ -8,7 +8,7 @@ const EditBookDetails = () => {
   const { id } = useParams();
 
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
+  const [authors, setAuthors] = useState('');
   const [number_of_pages, setNumber_of_pages] = useState('');
   const [publish_date, setPublish_date] = useState('');
   const [description, setDescription] = useState('');
@@ -26,12 +26,12 @@ const EditBookDetails = () => {
       .then((response) => {
         const bookDetails = response.data;
         setTitle(bookDetails.title);
-        setAuthor(bookDetails.author);
+        setAuthors(bookDetails.authors && bookDetails.authors.url);
         setNumber_of_pages(bookDetails.number_of_pages);
         setPublish_date(bookDetails.publish_date);
         setDescription(bookDetails.description);
         setCover(bookDetails.cover && bookDetails.cover.large);
-        setEbooks(bookDetails.ebooks && bookDetails.ebooks.preview_url);
+        setEbooks(bookDetails.ebooks && bookDetails.ebooks.preview_url&& bookDetails.ebooks.preview_url);
 
       })
       .catch((error) => {
@@ -43,18 +43,24 @@ const EditBookDetails = () => {
     e.preventDefault();
 
     const requestBody = {
-      title,
-      author,
-      number_of_pages,
-      publish_date,
-      description,
-      cover: {
-        large: cover,
-      },
-      ebooks: {
-        preview_url: ebooks,
-      },
-    };
+        title,
+        authors:[
+            {
+                name: authors,
+            },
+        ],
+        number_of_pages,
+        publish_date,
+        description,
+        cover: {
+          large: cover,
+        },
+        ebooks: [
+          {
+            preview_url: ebooks,
+          },
+        ],
+      };
 
     axios.put(`${BACKEND_API_URL}/${id}`, requestBody)
       .then(() => {
@@ -79,12 +85,12 @@ const EditBookDetails = () => {
         </label>
 
         <label>
-          Author:
+          Author(s):
           <input
             type="text"
             name="author"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
+            value={authors}
+            onChange={(e) => setAuthors(e.target.value)}
           />
         </label>
 
@@ -138,7 +144,7 @@ const EditBookDetails = () => {
           />
         </label>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Save</button>
       </form>
     </div>
   );

@@ -45,8 +45,8 @@ function BookByISBN() {
   };
 
   return (
-    <div>
-       <h1>Book Details Page</h1>
+    <div className="book-card">
+       <h1 >Book Details </h1>
       {bookDetailsISBN && (
         <div key={bookDetailsISBN.bookId}>
           {bookDetailsISBN.cover && bookDetailsISBN.cover.large && (

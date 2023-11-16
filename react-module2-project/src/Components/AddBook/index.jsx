@@ -22,7 +22,7 @@ const AddBook = () => {
         description,
         publish_date,
         cover: {
-          large:"https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
+          large:"https://thumbs.dreamstime.com/z/old-aged-grungy-book-paper-sheet-page-vignette-isolated-frame-background-copy-space-vintage-black-vertical-framed-grunge-87603655.jpg?w=576",
         }
       };
       

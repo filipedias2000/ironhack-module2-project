@@ -20,8 +20,8 @@ function Homepage() {
   };
 
   return (
-    <div >
-      <h1>Search Example</h1>
+    <div className ="custom-form">
+      <h1>Search your book!</h1>
       <SearchBar onSearch={handleSearch} />
       {/* Render search results or other components here */}
       <SearchByNameBar onSearch={handleSearchName} />

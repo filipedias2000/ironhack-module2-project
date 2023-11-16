@@ -18,7 +18,7 @@ function BookByName() {
 
   return (
     <div>
-      <h1>Book ISBN Page</h1>
+      <h2>Search Results:</h2>
       
       {bookDetails && bookDetails.docs.length > 0 && (
         <div>
@@ -26,7 +26,7 @@ function BookByName() {
           <h2>Title: {bookDetails.docs[0].title}</h2>
           {/*  display other details here */}
 
-          <ul>
+          <ul className="book-list">
        {bookDetails.docs.map((book, index) => (
        <li  key={index}>
            <Link to={`/list/${book.isbn && book.isbn[0]}`}>
