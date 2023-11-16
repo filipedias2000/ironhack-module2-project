@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Checkbox from "../checkBoxRead";
 
 function FavouriteBookDetailsPage() {
   const { id } = useParams();
@@ -21,8 +22,9 @@ function FavouriteBookDetailsPage() {
       });
   }, []);
 
+  
   function deleteBook(id) {
-    axios.delete(`${BACKEND_API_URL}/${id}`)
+    axios.delete(`https://openstories-29lc.onrender.com/FavouriteBooksList/${id}`)
       .then(() => {
         console.log("Book deleted!");
         navigate("/ViewList");
@@ -31,6 +33,7 @@ function FavouriteBookDetailsPage() {
         console.error("Error deleting book:", error);
       });
   }
+  
 
   return (
     <div>
@@ -80,43 +83,50 @@ function FavouriteBookDetailsPage() {
               <h3>Description :</h3>
               <h5>{myBookDetails.description}</h5>
             </div>
+            <Checkbox/>
           </div>
         )}
 
-        <div className="Bottom-container">
-          <div className="ebook-container">
-            <div>
-              <h4>
-                e-book:{" "}
-                {myBookDetails.ebooks ? (
-                  myBookDetails.ebooks.map((ebook, index) => (
-                    <a key={index} href={ebook.preview_url}>
-                      {ebook.preview_url}
-                    </a>
-                  ))
-                ) : (
-                  "Not available"
-                )}
-              </h4>
-            </div>
+         <div classeName = "Bottom-container">
 
-            <div className="button-container">
-              <Link to="/ViewList">
-                <button>Back to myList</button>
-              </Link>
-
-              <Link to={`/edit/${id}`}>
-                <button>Edit</button>
-              </Link>
-
-              <button onClick={() => deleteBook(id)}>Delete Book</button>
-
-              <Link to="">
-                <button>Mark as Read</button>
-              </Link>
-            </div>
-          </div>
+<div className="ebook-container">
+        <div >
+          <h4>
+            e-book:{" "}
+            {myBookDetails.ebooks ? (
+              myBookDetails.ebooks.map((ebook, index) => (
+                <a key={index} href={ebook.preview_url}>
+                  {ebook.preview_url}
+                </a>
+              ))
+            ) : (
+              "Not available"
+            )}
+          </h4>
         </div>
+
+        <div className="button-container">
+
+          <Link to="/ViewList">
+            <button>Back to myList</button>
+          </Link>
+
+          <Link to={`/edit/${id}`}>
+            <button>Edit</button>
+          </Link>
+
+          <Link>
+          <button onClick={() => deleteBook(id)}>Delete Book</button>
+          </Link>
+
+         
+
+
+        </div>
+        </div>
+        </div>
+
+
       </div>
     </div>
   );
