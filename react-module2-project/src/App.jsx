@@ -36,8 +36,6 @@ function App() {
 
 
         <Route path="/edit/:id" element={<EditBookDetails/>}/>
-
-        <Route path="/Testes/apagar no fim" element={<SearchBar/>}/>
       </Routes>
     </div>
   )

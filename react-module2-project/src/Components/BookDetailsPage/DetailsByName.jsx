@@ -22,9 +22,6 @@ function BookByName() {
       
       {bookDetails && bookDetails.docs.length > 0 && (
         <div>
-          {/* Access the details of the first book in the array 
-          <h2>Title: {bookDetails.docs[0].title}</h2>
-          {/*  display other details here */}
 
           <ul className="book-list">
        {bookDetails.docs.map((book, index) => (

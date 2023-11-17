@@ -8,9 +8,6 @@ const API_URL = "https://openlibrary.org/api/books?bibkeys=:bookId&jscmd=data&fo
 function BookByISBN() {
   const { bookId } = useParams();
   const [bookDetailsISBN, setBookDetailsISBN] = useState(null);
-  /* const [title, setTitle] = useState('')
-  const [numberOfPages, setNumberOfPages] = useState(0);
-  const [image, setImage] = useState (''); */
 
   const navigate = useNavigate();
 
@@ -18,10 +15,7 @@ function BookByISBN() {
     axios.get(API_URL.replace(":bookId", bookId))
       .then((response) => {
         setBookDetailsISBN(response.data[bookId]);
-/*         console.log(response.data[bookId].bookDetailsISBN.title) */
-/*         setTitle(response.data[bookId].bookDetailsISBN.title)
-        setNumberOfPages(response.data[bookId].bookDetailsISBN.number_of_pages)
-        setImage(response.data[bookId].bookDetailsISBN.cover.large) */
+
       })
       .catch((error) => {
         console.error("Error fetching book details:", error);

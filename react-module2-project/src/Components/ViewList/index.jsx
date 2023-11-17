@@ -71,11 +71,10 @@ function ViewList() {
                 ) : (
                   <h1>No image</h1>
                 )}
-                {/* <Link to={`/list/${book.bookDetailsISBN.identifiers.isbn_13}`}> */}
                 
                   <h2>Title: {book.bookDetailsISBN.title}</h2>
                     </Link>
-             {/*    </Link> */}
+            
                 <button onClick={() => deleteBook(book.id)}>Delete Book</button>
               
               </div>

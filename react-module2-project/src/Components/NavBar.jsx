@@ -6,7 +6,6 @@ function NavBar() {
     <nav className="navbar">
       <div className="nav-left">
         {/* You can place the SearchBar or other content on the left side */}
-        {/* <SearchBar /> */}
         <Link to="/" style={{textDecoration: 'none', color: 'white'}}>HomePage</Link>
       </div>
       <div className="app-name">
@@ -17,7 +16,6 @@ function NavBar() {
         {/* Place the View List link and its associated content on the right side */}
         <Link to="/ViewList" style={{textDecoration: 'none', color: 'white'}}>
           View List
-          {/* <img src="./star.png" alt="" height="40px" /> */}
         </Link>
       </div>
     </nav>
