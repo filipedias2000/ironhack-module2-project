@@ -2,23 +2,23 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function SearchOnFav({ onSearch }) {
-  const [searchTermName, setSearchTermName] = useState('');
+  const [searchTermName, setSearchTermName2] = useState('');
 
   const handleSearch = (event) => {
     const value = event.target.value;
-    setSearchTermName(value);
-    onSearch(value); // Pass the search term to the parent component or function
+    setSearchTermName2(value);
+    onSearch(value);
   };
 
-  const handleSaveName = () => {
-    // Use the 'searchTermName' variable wherever you need it.
+  const handleSaveFilter = () => {
     console.log('Saved search term:', searchTermName);
     // Perform other actions with the searchTermName variable as needed.
+    // Note: If you want to navigate, use the history object or a state management solution.
   };
 
   return (
     <div>
-      <label htmlFor="searchInput">Search by Name:</label>
+      <label htmlFor="searchInput">Search on your list!</label>
       <input
         type="text"
         id="searchInput"
@@ -26,8 +26,12 @@ function SearchOnFav({ onSearch }) {
         onChange={handleSearch}
         placeholder="Type your search here"
       />
-      <button onClick={handleSaveName}>
-        <Link style={{textDecoration: 'none', color: 'white'}} to={`/list/personal/${searchTermName}` }>Submit</Link>
+      
+        <button onClick={handleSaveFilter} className="AddButton">
+        <Link to={`/ViewList/filter/`}>
+          Submit
+      
+      </Link>
       </button>
     </div>
   );

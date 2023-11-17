@@ -3,6 +3,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import AddBook from "../AddBook";
+import SearchOnFav from "../SearchOnmyFavourites";
+
 
 const BACKEND_API_URL = "https://openstories-29lc.onrender.com/FavouriteBooksList";
 
@@ -39,19 +41,19 @@ function ViewList() {
     <div>
       
         <h1>My Favourite books</h1>
-        <div className="">
-        <Link to="/AddBookManually">
-          <button className = "AddButton">Add Manually</button>
-        </Link>
-      </div>
 
-      <div>
-      <input
-     /*      type="text"
-          placeholder="Search..."
-          value={searchTerm}
-      /*     onChange={handleSearchChange} */
-        /> 
+        <div  className="top-fav-page">
+
+             <div>
+             <Link to="/AddBookManually">
+             <button className = "AddButton">Add Manually</button>
+             </Link>
+             </div>
+
+              <div>
+              <SearchOnFav/>
+             </div>
+
       </div>
 
       <div className="book-card-container">

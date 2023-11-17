@@ -14,6 +14,7 @@ import AddBook from './Components/AddBook';
 import FavouriteBookDetailsPage from './Components/FavouriteBookDetailsPage';
 
 import EditBookDetails from './Components/EditBook';
+import FilteredBooks from './Components/FilteredBooks';
 
 function App() {
 
@@ -31,10 +32,10 @@ function App() {
         <Route path="/AddBookManually" element={<AddBook/>}/>
         <Route path="/list/personal/:id" element={<FavouriteBookDetailsPage/>}/>
 
+        <Route path="/ViewList/filter" element={<FilteredBooks/>}/>
+
+
         <Route path="/edit/:id" element={<EditBookDetails/>}/>
-
-
-
 
         <Route path="/Testes/apagar no fim" element={<SearchBar/>}/>
       </Routes>
